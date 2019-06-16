@@ -19,7 +19,7 @@ rm -rf cackey.pub
 echo "The Pub Key File Is Property Placed!"
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 
-
+exit 0
 }
 
 enablekeylogin()
@@ -32,6 +32,7 @@ sleep 3
 service sshd restart
 echo "请确认密匙登录成功后关闭密码登录"
 
+exit 0
 }
 
 disablepasslogin()
@@ -39,6 +40,7 @@ disablepasslogin()
 sed -i '/#PasswordAuthentication yes/cPubkeyAuthentication no' /etc/ssh/sshd_config
 service sshd restart
 
+exit 0
 }
 restorebackup()
 {
@@ -46,11 +48,13 @@ restorebackup()
     cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config
     service sshd restart
     echo "Default Configuration File Has Been Recovery"
+    
+    exit 0
 }
 echo "********Please Wait ...........*********"
-echo "****Welcome To Use The Tool****"
-echo "******* BLOG: myxw.ml *********"
-sleep 3
+echo "********Welcome To Use The Tool*********"
+echo "*********** BLOG: myxw.ml **************"
+sleep 1
 echo "请输入选项:"
 echo "1 配置公匙文件"
 echo "2 开启密匙登录"
@@ -72,5 +76,5 @@ restorebackup
 ;;
 *)
 echo "输入错误，请重新执行脚本"
-exit;
+exit 0
 ;;
