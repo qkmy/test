@@ -72,5 +72,5 @@ restorebackup
 ;;
 *)
 echo "输入错误，请重新执行脚本"
-exit($0);
+exit;
 ;;
