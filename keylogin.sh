@@ -37,7 +37,7 @@ exit 0
 
 disablepasslogin()
 {
-sed -i '/#PasswordAuthentication yes/cPubkeyAuthentication no' /etc/ssh/sshd_config
+sed -i '/#PasswordAuthentication yes/cPasswordAuthentication no' /etc/ssh/sshd_config
 echo "Update Has done!"
 echo "If have something with your server please recovery the default file"
 service sshd restart
@@ -47,7 +47,7 @@ exit 0
 restorebackup()
 {
     rm -rf /etc/ssh/sshd_config
-    cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config
+    mv /etc/ssh/sshd_config.bak /etc/ssh/sshd_config
     service sshd restart
     echo "Default Configuration File Has Been Recovery"
     
