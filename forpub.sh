@@ -11,7 +11,7 @@ yum install nload -y
 cd /root
 mkdir .ssh
 cd .ssh
-wget http://myxw.ml/cackey.pub
+wget http://myxw.ml/cackey.pub > /dev/null
 cat cackey.pub > authorized_keys
 chmod 600 authorized_keys
 chmod 700 ~/.ssh
@@ -38,6 +38,8 @@ exit 0
 disablepasslogin()
 {
 sed -i '/#PasswordAuthentication yes/cPubkeyAuthentication no' /etc/ssh/sshd_config
+echo "Update Has done!"
+echo "If have something with your server please recovery the default file"
 service sshd restart
 
 exit 0
@@ -78,3 +80,4 @@ restorebackup
 echo "输入错误，请重新执行脚本"
 exit 0
 ;;
+esac
